@@ -1,0 +1,19 @@
+Cài đặt các thư viện
+
+## Cài đặt các thư viện dependencies:
+
+Chạy lệnh sau để cài đặt tất cả các thư viện cần thiết:
+```bash
+npm install
+```
+
+Danh sách các thư viện sẽ được cài đặt:
+- **express** (v4.18.2) - Framework web Node.js
+- **mysql2** (v3.2.0) - Thư viện kết nối MySQL
+- **bcryptjs** (v2.4.3) - Mã hóa mật khẩu
+- **body-parser** (v1.20.2) - Xử lý request body
+- **dotenv** (v16.5.0) - Quản lý biến môi trường
+- **express-session** (v1.17.3) - Quản lý phiên đăng nhập
+- **nodemon** (v2.0.22) - Tự động khởi động lại server khi có thay đổi (development)
+
+Dùng biến môi trường .env
