@@ -1,0 +1,123 @@
+<!--
+    Trang chính của ứng dụng Quản lý Tài chính
+    
+    Cấu trúc trang:
+    - Header: Hiển thị thông tin người dùng và nút đăng xuất
+    - Main content:
+        + Form thêm giao dịch mới
+        + Bảng hiển thị danh sách giao dịch
+        + Báo cáo tài chính (theo ngày/tháng)
+    - Modal: Form chỉnh sửa giao dịch
+-->
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Tài Chính</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Main Application -->
+        <div id="mainApp">
+            <header>
+                <h1>Quản Lý Tài Chính</h1>
+                <div class="header-right">
+                    <div id="userInfo"></div>
+                    <button id="logoutBtn">Đăng Xuất</button>
+                </div>
+            </header>
+
+            <!-- Add Transaction Form -->
+            <div class="transaction-form">
+                <h2>Thêm Giao Dịch Mới</h2>
+                <form id="transaction-form">
+                    <input type="number" id="amount" placeholder="Số tiền" required>
+                    <input type="text" id="category" placeholder="Nhập tên danh mục" required>
+                    <select id="type" required>
+                        <option value="Thu">Thu</option>
+                        <option value="Chi">Chi</option>
+                    </select>
+                    <input type="date" id="date" required>
+                    <textarea id="note" placeholder="Ghi chú"></textarea>
+                    <button type="submit">Thêm Giao Dịch</button>
+                </form>
+            </div>
+
+            <!-- Transaction History -->
+            <div class="transaction-history">
+                <h2>Lịch Sử Giao Dịch</h2>
+                <br>
+                <div class="summary">
+                    <div class="income">
+                        <h3>Tổng Thu</h3>
+                        <p id="totalIncome">0 VNĐ</p>
+                    </div>
+                    <div class="expense">
+                        <h3>Tổng Chi</h3>
+                        <p id="totalExpense">0 VNĐ</p>
+                    </div>
+                    <div class="balance">
+                        <h3>Số Dư</h3>
+                        <p id="balance">0 VNĐ</p>
+                    </div>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ngày</th>
+                            <th>Danh Mục</th>
+                            <th>Loại</th>
+                            <th>Số Tiền</th>
+                            <th>Ghi Chú</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody id="transactionList">
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Modal Sửa Giao Dịch -->
+            <div id="editModal" class="modal hidden">
+                <div class="modal-content">
+                    <h2>Sửa Giao Dịch</h2>
+                    <form id="edit-transaction-form">
+                        <input type="hidden" id="edit-transaction-id">
+                        <input type="number" id="edit-amount" placeholder="Số tiền" required>
+                        <input type="text" id="edit-category" placeholder="Nhập tên danh mục" required>
+                        <select id="edit-type" required>
+                            <option value="Thu">Thu</option>
+                            <option value="Chi">Chi</option>
+                        </select>
+                        <input type="date" id="edit-date" required>
+                        <textarea id="edit-note" placeholder="Ghi chú"></textarea>
+                        <div class="modal-buttons">
+                            <button type="submit">Lưu</button>
+                            <button type="button" onclick="closeEditModal()">Hủy</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Reports Section -->
+            <div class="reports">
+                <h2>Báo Cáo</h2>
+                <br>
+                <div class="report-tabs">
+                    <button class="tab-btn active" data-tab="daily">Báo Cáo Ngày</button>
+                    <button class="tab-btn" data-tab="monthly">Báo Cáo Tháng</button>
+                </div>
+                <div id="dailyReport" class="report-content active">
+                    <!-- Daily report content will be inserted here -->
+                </div>
+                <div id="monthlyReport" class="report-content hidden">
+                    <!-- Monthly report content will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!--
+    Trang đăng ký của ứng dụng Quản lý Tài chính
+    
+    Chức năng:
+    - Form đăng ký với username, email và password
+    - Xác thực dữ liệu nhập
+    - Liên kết đến trang đăng nhập
+    - Xử lý chuyển hướng nếu đã đăng nhập
+-->
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Ký - Quản Lý Tài Chính</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="app">
+        <div class="auth-form">
+            <h2>Đăng Ký</h2>
+            <form id="registerForm">
+                <input type="text" id="username" placeholder="Tên đăng nhập" required>
+                <input type="password" id="password" placeholder="Mật khẩu" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <button type="submit">Đăng Ký</button>
+            </form>
+            <p>Đã có tài khoản? <a href="login.html">Đăng nhập</a></p>
+        </div>
+    </div>
+    <script type="module" src="js/auth.js"></script>
+</body>
+</html>
